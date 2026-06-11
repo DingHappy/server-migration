@@ -1,0 +1,17 @@
+# 全局配置 —— 复制为 migration.conf 后填写
+# cp migration.conf.example migration.conf && vim migration.conf
+
+# 目标机 SSH 地址（源机要能免密 ssh 过去）
+TARGET_HOST="root@203.0.113.10"
+TARGET_SSH_PORT="22"
+
+# 中转目录（源机本地，存放临时 dump 文件）
+WORK_DIR="/tmp/migration"
+
+# 数据库连接参数。
+# 留作 "-u root" 时配合 ~/.my.cnf 里的密码最安全；也可写成 "-u root -pXXXX"
+SRC_MYSQL_OPTS="-u root"     # 在源机执行 mysqldump 用
+DST_MYSQL_OPTS="-u root"     # 在目标机执行 mysql 导入用（通过 ssh）
+
+# Postgres（如无可忽略）。在目标机用 postgres 用户执行
+PG_SUPERUSER="postgres"

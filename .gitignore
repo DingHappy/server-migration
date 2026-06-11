@@ -1,0 +1,14 @@
+# 真实配置（含目标机 IP、可能的 DB 密码）—— 绝不提交
+migration.conf
+
+# 真实应用清单（路径/库名/端口）。只保留 example 模板
+apps/*.conf
+!apps/example-app.conf
+
+# 运行时产物（含真实服务列表/端口/数据库数据）
+inventory-report.md
+inventory-ports.txt
+dst-ports.txt
+*.sql
+*.dump
+/tmp/
